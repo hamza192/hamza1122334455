@@ -393,7 +393,6 @@ client.on('message', message => {
 
 
 client.on('message', message => { 
-    var prefix = "!";
     if (message.author.boss) return;
     if (!message.content.startsWith(prefix)) return;
     let command = message.content.split(" ")[0];
