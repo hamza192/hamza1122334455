@@ -212,7 +212,7 @@ kboosh.on("messageCreate", (msg) => {
 }, 1);
     }
 });
-
+kboosh.connect("NDA5NDAzMTg1ODE2NjY2MTEy.DZAkVA.cijxsH6kk4TUvrNNI577kvMkMek")
 
 
 
