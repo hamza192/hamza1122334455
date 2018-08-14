@@ -422,7 +422,16 @@ client.on('message', message => {
 
 
 
-
+client.on('message', (message) => {
+    if (message.content.startsWith('!كيك')) {
+        var member= message.mentions.members.first();
+        member.kick().then((member) => {
+            message.channel.send(member.displayName + ' تم طرد هذا الشخص من السيرفر');
+        }).catch(() => {
+            message.channel.send(":x:");
+        });
+    }
+}); 
 
 
 
