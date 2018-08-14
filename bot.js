@@ -140,49 +140,49 @@ client.on('message', message => {
 
 
 
+client.on("message", message => {
+             
+     if(!message.channel.guild) return;
 
-const Eris = require("eris");
-var kboosh = new Eris("NDA5NDAzMTg1ODE2NjY2MTEy.DZAkVA.cijxsH6kk4TUvrNNI577kvMkMek");
-var kboosh_id = "394126841360941067";
-                    var i = "0";
-                    var x = "0";
-kboosh.on("voiceChannelJoin", (msg) => {
-    x++;
-    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「" + x + "」"});
-});
-kboosh.on("voiceChannelLeave", (msg) => {
-    x--;
-    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「" + x + "」"});
-});
+ if (message.content === "!help") {
+   message.react("😜")
+  const embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .addField("『LEGO』 『اسم البوت』", true)
+      
+      .addField("『!help1』😘『اذا تبي جميع الاوامر مع اوامر اضافية』😵", true)
+      
+	    .addField("『!help2』👻『اذا تبي الاوامر العامة』😳", true)
+	    
+      .addField("『!help3』😮『اذا تبي  الاوامر الادارية』🤒", true)
+      
+  message.channel.sendMessage({embed});
 
-kboosh.on("messageCreate", (msg) => {
-    if(msg.author.id !== "230681534674370560") return kboosh.createMessage('__**This Command is only for the bot Owner**__');
-    if(msg.content === "!voice") {
-        let users = msg.channel.guild.members.map(m => m.user.id);
-        let messages = [];
-        messages.push(users);
-        setTimeout(function(){
-        while (i <= messages[0].length - 1) {
-            check = msg.channel.guild.members.get(messages[0][i]);
-        if(!check.voiceState.channelID){
-                i++;
-        }else{
-                x++;
-                i++;
-        }
-}
-    console.log(x);
-    kboosh.createMessage(msg.channel.id, "Voice Online Members Now Are: **"+x+"** Members!");
-    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「"+x+"」"});
-    messages = [];
-}, 1);
-    }
+ }
 });
 
 
-  
 
-kboosh.connect("NDA5NDAzMTg1ODE2NjY2MTEy.DZAkVA.cijxsH6kk4TUvrNNI577kvMkMek")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
