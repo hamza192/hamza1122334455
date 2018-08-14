@@ -155,40 +155,21 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لي�
 
 
 client.on('message', message => {
-        if (message.author.id === client.user.id) return;
-        if (message.guild) {
-       let embed = new Discord.RichEmbed()
-        let args = message.content.split(' ').slice(1).join(' ');
-    if(message.content.split(' ')[0] == prefix + '!bc1') {
-        if (!args[1]) {
-    message.channel.send("**.bc1 <message>**");
-    return;
+    if (message.content.startsWith("!صورة")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
     }
-            message.guild.members.forEach(m => {
-       if(!message.member.hasPermission('ADMINISTRATOR')) return;
-                var bc = new Discord.RichEmbed()
-                .setAuthor(message.author.username, message.author.avatarURL)
-                .addField(' الـسيرفر', `${message.guild.name}`,true)
-                .addField(' الـمرسل ', `${message.author.username}#${message.author.discriminator}`,true)
-                .addField(' الرسالة ', args)
-                .setThumbnail(message.guild.iconURL)
-                .setColor('RANDOM')
-                m.send(`${m}`,{embed: bc});
-            });
-            const AziRo = new Discord.RichEmbed()
-            .setAuthor(message.author.username, message.author.avatarURL)   
-            .setTitle('✅| جاري ارسال رسالتك ') 
-            .addBlankField(true)
-            .addField('♨| عدد الاعضاء المرسل لهم ', message.guild.memberCount , true)        
-            .addField('📝| الرسالة ', args)
-            .setColor('RANDOM')  
-            message.channel.sendEmbed(AziRo);          
-        }
-        } else {
-            return;
-        }
-    });
-
+});
 
 
 
