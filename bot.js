@@ -4036,7 +4036,7 @@ client.on('message', message => {
 		role.delete()
 		}
 	
-	});
+	
 
 
 
