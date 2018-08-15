@@ -455,21 +455,56 @@ client.on('message', (message) => {
 
 
 
-client.on('message', message => {
-   if(message.content.startsWith(prefix + "!دعوة")) {
-    message.guild.fetchInvites().then(invs => {
-      let user = message.mentions.users.first() || message.author
-      let personalInvites = invs.filter(i => i.inviter.id === user.id);
-      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
-               let mmmmEmbed = new Discord.RichEmbed()
-                         .setAuthor(client.user.username)
-                         .setThumbnail(message.author.avatarURL)
- .addField(لقد قمت بدعوة :, ${inviteCount})
-           .setFooter(- Requested By: ${message.author.tag});
-           message.channel.send(mmmmEmbed)
+client.on("guildMemberAdd", (member) => {
+
+    let channel = member.guild.channels.get("450053252222812162");
+
+    if (!channel) {
+
+        console.log("!the channel id it's not correct");
+
+        return;
+
+    }
+
+    if (member.id == client.user.id) {
+
+        return;
+
+    }
+
+    console.log('-');
+
+    var guild;
+
+    while (!guild)
+
+        guild = client.guilds.get("230681753965166592");
+
+    guild.fetchInvites().then((data) => {
+
+        data.forEach((Invite, key, map) => {
+
+            var Inv = Invite.code;
+
+            if (dat[Inv])
+
+                if (dat[Inv] < Invite.uses) {
+
+ channel.send(تم دعوته بواسطة  ${Invite.inviter}) ;
+
+ }
+
+            dat[Inv] = Invite.uses;
+
+
+
+       });
+
+    });
+
 });
-  }
-});
+
 
 
 
