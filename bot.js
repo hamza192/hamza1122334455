@@ -752,59 +752,53 @@ client.on('message', message => {
 
 
 
-const Eris = require("eris");
-var kboosh = new Eris("NDA5NDAzMTg1ODE2NjY2MTEy.DZAkVA.cijxsH6kk4TUvrNNI577kvMkMek");
-var kboosh_id = "394126841360941067";
-                    var i = "0";
-                    var x = "0";
-kboosh.on("voiceChannelJoin", (msg) => {
-    x++;
-    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「" + x + "」"});
-});
-kboosh.on("voiceChannelLeave", (msg) => {
-    x--;
-    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「" + x + "」"});
-});
-
-kboosh.on("messageCreate", (msg) => {
-    if(msg.author.id !== "230681534674370560") return kboosh.createMessage('__**This Command is only for the bot Owner**__');
-    if(msg.content === "!voice") {
-        let users = msg.channel.guild.members.map(m => m.user.id);
-        let messages = [];
-        messages.push(users);
-        setTimeout(function(){
-        while (i <= messages[0].length - 1) {
-            check = msg.channel.guild.members.get(messages[0][i]);
-        if(!check.voiceState.channelID){
-                i++;
-        }else{
-                x++;
-                i++;
-        }
-}
-    console.log(x);
-    kboosh.createMessage(msg.channel.id, "Voice Online Members Now Are: **"+x+"** Members!");
-    kboosh.editChannel(kboosh_id, { name : "Voice ⇏「"+x+"」"});
-    messages = [];
-}, 1);
-    }
-});
 
 
-  
-
-kboosh.connect("NDA5NDAzMTg1ODE2NjY2MTEy.DZAkVA.cijxsH6kk4TUvrNNI577kvMkMek")
+client.on('message', message => {
+    if (message.content === "!سرفر") {
+        if (!message.channel.guild) return
+        var verificationLevel = message.guild.verificationLevel;
+        const verificationLevels = ['None','Low','Meduim','High','Extreme'];
+        var Y1 = message.guild.createdAt.getFullYear() - 2000
+        var M2 = message.guild.createdAt.getMonth()
+        var D3 = message.guild.createdAt.getDate()
+        const xNiTRoZ = new Discord.RichEmbed()
+         .setAuthor(message.author.username , message.author.avatarURL)
+         .setColor('RANDOM')
+         .setTimestamp()
+         .setTitle(message.guild.name,message.guild.iconURL)
+         .addField(':id: اي دي السيرفر',`${message.guild.id}`,true)
+         .addField(':date: أنشئت في',D3 + '.' + M2 + '.' + Y1,true)             
+         .addField(':crown: اونر السيرفر',`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)             
+         .addField(':busts_in_silhouette: الاعضاء ' + ` ${message.guild.memberCount} `,'Online '+`[ ${message.guild.members.filter(m=>m.presence.status == 'online','idle','dnd').size} ]`+ ','+'Offline '+`[ ${message.guild.members.filter(m=>m.presence.status == 'offline').size} ]`,true)
+         .addField(':speech_balloon: قنوات' +' '+message.guild.channels.size+' ',`Text [ ${message.guild.channels.filter(m => m.type === 'text').size} ]`+', '+`Voice [ ${message.guild.channels.filter(m => m.type === 'voice').size} ]`,true)
+         .addField(':earth_asia: الدوله',message.guild.region)
+         .addField(':ribbon: ايموجي السيرفر',`${message.guild.emojis.size}`,true)
+         .addField(':construction: مستوى التحقق',`${verificationLevels[message.guild.verificationLevel]}`,true)
+         .addField(':closed_lock_with_key: الرتب  '+message.guild.roles.size+' ','Type `.roles` To See The Server Roles!')
+         message.channel.send({embed:xNiTRoZ});
+     }
+    });
 
 
 
 
-
-
-
-
-
-
-
+client.on('message', message => {
+              if (!message.channel.guild) return;
+      if(message.content =='!اعضاء')
+      var IzRo = new Discord.RichEmbed()
+      .setThumbnail(message.author.avatarURL)
+      .setFooter(message.author.username, message.author.avatarURL) 
+      .setTitle(':tulip:| Members info')
+      .addBlankField(true)
+      .addField(':green_book:| الاونلاين ',
+      `${message.guild.members.filter(m=>m.presence.status == 'online').size}`)
+      .addField(':closed_book:| دي ان دي',`${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`)
+      .addField(':orange_book:| خامل',`${message.guild.members.filter(m=>m.presence.status == 'idle').size}`)
+      .addField(':notebook:| الاوف لاين ',`${message.guild.members.filter(m=>m.presence.status == 'offline').size}`)
+      .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
+      message.channel.send(IzRo);
+    });
 
 
 
