@@ -942,10 +942,10 @@ return message.reply("**:white_check_mark: .. تم اعطاء العضو ميو�
   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
 
   if (message.guild.member(user).removeRole(muteRole.id)) {
-return message.reply("**:white_check_mark: .. the Member Shut up **").catch(console.error);
+return message.reply("**:white_check_mark: .. تم فك العضو ميوت كتابي **").catch(console.error);
 } else {
     message.guild.member(user).removeRole(muteRole).then(() => {
-return message.reply("**:white_check_mark: .. the Member Shut up **").catch(console.error);
+return message.reply("**:white_check_mark: ..تم فك العضو ميوت كتابي **").catch(console.error);
 });
   }
 
