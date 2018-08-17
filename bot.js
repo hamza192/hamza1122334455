@@ -350,7 +350,7 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'السلام عليكم ') {
+  if (msg.content === 'السلام عليكم') {
     msg.reply('وعليكم السلام و رحمة الله و بركاته!');
   }
 }); 
@@ -365,7 +365,7 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'سلام عليكم ') {
+  if (msg.content === 'سلام عليكم') {
     msg.reply('**وعليكم السلام ورحمة الله وبركاته**');
   }
 }); 
@@ -394,7 +394,7 @@ client.on('message', msg => {
 
 
 client.on('message', msg => {
-  if (msg.content === 'احبك ') {
+  if (msg.content === 'احبك') {
     msg.reply('**بس يا عصافير الحب** ');
   }
 }); 
@@ -402,7 +402,7 @@ client.on('message', msg => {
 
 
 client.on('message', msg => {
-  if (msg.content === 'جيت ') {
+  if (msg.content === 'جيت') {
     msg.reply('**اطلق من جا**');
   }
 }); 
@@ -420,7 +420,11 @@ client.on('message', msg => {
 });
 
 
-
+client.on('message', msg => {
+  if (msg.content === 'حمزة') {
+    msg.reply('**يا حلو (حمزة) **');
+  }
+});
 
 
 
