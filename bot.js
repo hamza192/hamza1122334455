@@ -343,6 +343,118 @@ client.on('message', message => {
 
 
 
+client.on('message', msg => {
+  if (msg.content === 'باك') {
+    msg.reply('ولكم منور!');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'السلام عليكم ') {
+    msg.reply('وعليكم السلام و رحمة الله و بركاته!');
+  }
+}); 
+
+
+
+
+client.on('message', msg => {
+  if (msg.content === '.') {
+    msg.reply('احلى من نقط');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'سلام عليكم ') {
+    msg.reply('**وعليكم السلام ورحمة الله وبركاته**');
+  }
+}); 
+
+
+
+client.on('message', msg => {
+  if (msg.content === '..') {
+    msg.reply('الناس يسلمو');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'رحب') {
+    msg.reply('منورنا يا الغالي');
+  }
+}); 
+
+
+
+
+
+
+
+
+
+
+client.on('message', msg => {
+  if (msg.content === 'احبك ') {
+    msg.reply('**بس يا عصافير الحب** ');
+  }
+}); 
+
+
+
+client.on('message', msg => {
+  if (msg.content === 'جيت ') {
+    msg.reply('**اطلق من جا**');
+  }
+}); 
+
+
+
+
+
+
+
+client.on('message', msg => {
+  if (msg.content === 'حمزه') {
+    msg.reply('**يا حلو (حمزة) **');
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
