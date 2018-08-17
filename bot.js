@@ -432,7 +432,11 @@ client.on('message', msg => {
 
 
 
-
+client.on('message', msg => {
+  if (msg.content === 'ولكم') {
+    msg.reply('**^ :sparkles:Welcome to  LEGO | مرحبا بك في ليقو:sparkles:^**');
+  }
+});
 
 
 
