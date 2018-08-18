@@ -1202,25 +1202,6 @@ client.on("guildMemberAdd", member => {
 
 
 
-Client.on("message", message => {
-    var prefix = "+";
-    var args = message.content.split(' ').slice(1); 
-    var msg = message.content.toLowerCase();
-    if( !message.guild ) return;
-    if( !msg.startsWith( prefix + 'role' ) ) return;
-    if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
-        if( args[0].toLowerCase() == "all" ){
-            message.guild.members.forEach(m=>m.removeRole( role1 ))
-            return    message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
-        } else if( args[0].toLowerCase() == "bots" ){
-            message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
-            return    message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البوتات رتبة**');
-        } else if( args[0].toLowerCase() == "humans" ){
-            message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
-            return    message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
-        } 
-}
-
 
 
 
