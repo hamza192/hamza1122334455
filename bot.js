@@ -1203,6 +1203,7 @@ client.on("guildMemberAdd", member => {
 
 
 Client.on("message", message => {
+    var prefix = "+";
     var args = message.content.split(' ').slice(1); 
     var msg = message.content.toLowerCase();
     if( !message.guild ) return;
@@ -1219,7 +1220,6 @@ Client.on("message", message => {
             return    message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
         } 
 }
-
 
 
 
