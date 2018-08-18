@@ -1017,32 +1017,47 @@ client.on('message',async message => {
 
 
 
-const invites = {};
-const wait = require('util').promisify(setTimeout);
-client.on('ready', () => {
-  wait(1000);
-
-  client.guilds.forEach(g => {
-    g.fetchInvites().then(guildInvites => {
-      invites[g.id] = guildInvites;
+client.on("ready", () => {
+    var guild;
+    while (!guild)
+        guild = client.guilds.get("230681753965166592");
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            dat[Inv] = Invite.uses;
+        });
     });
-  });
 });
-client.on('guildMemberAdd', member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[member.guild.id];
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const yumz = member.guild.channels.find("name", "chat");
-     yumz.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
-   //  yumz.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
-  }); 
+ 
+ 
+ 
+client.on("guildMemberAdd", (member) => {
+    let channel = member.guild.channels.get("450053252222812162");
+    if (!channel) {
+        console.log("!the channel id it's not correct");
+        return;
+    }
+    if (member.id == client.user.id) {
+        return;
+    }
+    console.log('-');
+    var guild;
+    while (!guild)
+        guild = client.guilds.get("230681753965166592");
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            if (dat[Inv])
+                if (dat[Inv] < Invite.uses) {
+ channel.send(`تم دعوته بواسطة  ${Invite.inviter} `) ;        
+ }
+            dat[Inv] = Invite.uses;
+       
+       });
+    });
 });
-
-
-
-
-
+ 
+ 
 
 
 
