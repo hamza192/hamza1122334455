@@ -483,7 +483,24 @@ client.on('message',message =>{
 
 
 
-
+client.on('message' , najzx => {
+    let user = najzx.mentions.users.first()|| client.users.get(najzx.content.split(' ')[1])
+    if(najzx.content.startsWith(prefix + 'فك الباند')) {
+        if(!najzx.member.hasPermission('ADMINISTRATOR')) return najzx.channel.send('❌|**\`ADMINISTRATOR\`لا توجد لديك رتبة`**');
+        if(!user) return  najzx.channel.send(`Do this ${prefix} <@ID user> \n or \n ${prefix}unban ID user`);
+        najzx.guild.unban(user);
+        najzx.guild.owner.send(`لقد تم فك الباند عن الشخص \n ${user} \n By : <@${najzx.author.id}>`)
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(najzx.author.avatarURl)
+        .setColor("RANDOM")
+        .setTitle('**Unban** !')
+        .addField('**User Unban :** ', `${user}` , true)
+        .addField('**By :**' ,       ` <@${najzx.author.id}> ` , true)
+        .setAuthor(najzx.guild.name)
+       .setFooter('Requested by '+najzx.author.username, najzx.author.avatarURL)
+        najzx.channel.sendEmbed(embed)
+    }
+  });
 
 
 
