@@ -882,24 +882,7 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-  // Voice only works in guilds, if the message does not come from a guild,
-  // we ignore it
-  if (!message.guild) return;
 
-  if (message.content === 'تعال') {
-    // Only try to join the sender's voice channel if they are in one themselves
-    if (message.member.voiceChannel) {
-      message.member.voiceChannel.join()
-        .then(connection => { // Connection is an instance of VoiceConnection
-          message.reply('I have successfully connected to the channel!');
-        })
-        .catch(console.log);
-    } else {
-      message.reply('You need to join a voice channel first!');
-    }
-  }
-})
 
 
 
@@ -923,29 +906,22 @@ client.on('message', (message) => {
 
 
 
-
-
-
-
-
-
-
-
 client.on('message', message => {
-   if(message.content.startsWith(prefix + "دعواتي")) {
+   if(message.content.startsWith(prefix + "دعوات")) {
     message.guild.fetchInvites().then(invs => {
       let user = message.mentions.users.first() || message.author
       let personalInvites = invs.filter(i => i.inviter.id === user.id);
       let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
-               let mmmmEmbed = new Discord.RichEmbed()
-                         .setAuthor(client.user.username)
-                         .setThumbnail(message.author.avatarURL)
- .addField(` لقد قمت بدعوة :`, ` ${inviteCount} `)
-           .setFooter(`- Requested By: ${message.author.tag}`);
-           message.channel.send(mmmmEmbed)
+message.channel.send(`${user} لقد قمت بدعوه ${inviteCount} دعوه.`);
 });
   }
 });
+
+
+
+
+
+
 
 
 
