@@ -1164,7 +1164,15 @@ message.react("❌")
 
 
 
-
+client.on('message', message => {
+let msg = "احبك";
+let reply = "انا";
+if(message.content === msg) {
+setTimeout(() => {
+message.channel.send(reply);
+}, 1000);
+}
+});
 
 
 
