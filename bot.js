@@ -881,13 +881,7 @@ client.on("message", message => {
 
 
 
-client.on('message',async message => {
-if(message.content.startsWith(prefix + "say" ) {
-var args = mesage.content.split(' ').slice(1).join(' ');
-if(!args) return;
-message.channel.send(`- ${args}`);
-}
-});
+
 
 
 
