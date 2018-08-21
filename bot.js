@@ -345,7 +345,7 @@ client.on('message', message => {
 
 client.on('message', msg => {
   if (msg.content === 'باك') {
-    msg.reply('ولكم منور!');
+    msg.reply('**ولكم منور**');
   }
 });
 
@@ -356,29 +356,43 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content === '.') {
-    msg.reply('احلى من نقط');
+    msg.reply('**احلى من نقط**');
   }
 });
 
-client.on('message', msg => {
-  if (msg.content === 'سلام عليكم') {
-    msg.reply('**وعليكم السلام ورحمة الله وبركاته**');
-  }
-}); 
+
+client.on('message', message => {
+let msg = "ولكم";
+let reply = "**^ :sparkles:Welcome to  LEGO | مرحبا بك في ليقو:sparkles:^**";
+if(message.content === msg) {
+setTimeout(() => {
+message.channel.send(reply);
+}, 1000);
+}
+});
 
 
 
 client.on('message', msg => {
   if (msg.content === '..') {
-    msg.reply('الناس يسلمو');
+    msg.reply('**الناس يسلمو**');
   }
 });
 
-client.on('message', msg => {
-  if (msg.content === 'رحب') {
-    msg.reply('منورنا يا الغالي');
-  }
-}); 
+
+
+
+
+client.on('message', message => {
+let msg = "رحب";
+let reply = "**منورنا يا الغالي**";
+if(message.content === msg) {
+setTimeout(() => {
+message.channel.send(reply);
+}, 1000);
+}
+});
+
 
 
 
@@ -389,6 +403,15 @@ client.on('message', msg => {
     }
   });;
   
+
+
+
+
+client.on('message', msg => {//msg
+    if (msg.content === 'سلام عليكم') {
+      msg.channel.send({file : "https://cdn.discordapp.com/attachments/402199016076476416/481553006723203102/a0c5bd0e09e69a17.png"})
+    }
+  });;
 
 
 client.on('message', message => {
@@ -428,17 +451,35 @@ client.on('message', message => {
 
 
 
+client.on('message', message => {
+let msg = "احبك";
+let reply = "**بس يا عصافير الحب**";
+if(message.content === msg) {
+setTimeout(() => {
+message.channel.send(reply);
+}, 1000);
+}
+});
 
 
 
 
 
 
-client.on('message', msg => {
-  if (msg.content === 'احبك') {
-    msg.reply('**بس يا عصافير الحب** ');
-  }
-}); 
+
+
+
+client.on('message', message => {
+let msg = "ساهر";
+let reply = "تقصد الشيخ ساهر:اذا نعم اكتب نعم";
+if(message.content === msg) {
+setTimeout(() => {
+message.channel.send(reply);
+}, 1000);
+}
+});
+
+
 
 
 
@@ -473,11 +514,6 @@ client.on('message', msg => {
 
 
 
-client.on('message', msg => {
-  if (msg.content === 'ولكم') {
-    msg.reply('**^ :sparkles:Welcome to  LEGO | مرحبا بك في ليقو:sparkles:^**');
-  }
-});
 
 
 
@@ -493,33 +529,7 @@ client.on('message', msg => {
 
 
 
-client.on('message',message =>{
-    var prefix = "/";
-    if(message.content.startsWith(prefix + 'top')) {
-  message.guild.fetchInvites().then(i =>{
-  var invites = [];
-   
-  i.forEach(inv =>{
-    var [invs,i]=[{},null];
-     
-    if(inv.maxUses){
-        invs[inv.code] =+ inv.uses+"/"+inv.maxUses;
-    }else{
-        invs[inv.code] =+ inv.uses;
-    }
-        invites.push(`invite: ${inv.url} inviter: ${inv.inviter} \`${invs[inv.code]}\`;`);
-   
-  });
-  var embed = new Discord.RichEmbed()
-  .setColor("#000000")
-  .setDescription(`${invites.join(`\n`)+'\n\n**By:** '+message.author}`)
-  .setThumbnail("https://i.imgur.com/OM00xyh.png")
-           message.channel.send({ embed: embed });
-   
-  });
-   
-    }
-  });
+
 
 
 
@@ -1182,15 +1192,7 @@ message.react("❌")
 
 
 
-client.on('message', message => {
-let msg = "احبك";
-let reply = "انا";
-if(message.content === msg) {
-setTimeout(() => {
-message.channel.send(reply);
-}, 1000);
-}
-});
+
 
 
 
