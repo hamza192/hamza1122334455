@@ -349,11 +349,7 @@ client.on('message', msg => {
   }
 });
 
-client.on('message', msg => {
-  if (msg.content === 'السلام عليكم') {
-    msg.reply('وعليكم السلام و رحمة الله و بركاته!');
-  }
-}); 
+
 
 
 
@@ -389,7 +385,7 @@ client.on('message', msg => {
 
  client.on('message', msg => {//msg
     if (msg.content === 'السلام عليكم') {
-      msg.channel.send({file : "رابط الصورة الي تبي يرد فيه"})
+      msg.channel.send({file : "https://cdn.discordapp.com/attachments/402199016076476416/481553006723203102/a0c5bd0e09e69a17.png"})
     }
   });;
   
