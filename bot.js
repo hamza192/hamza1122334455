@@ -952,7 +952,7 @@ client.on('message', (message) => {
 
 
 client.on('message', message => {
-   if(message.content.startsWith(prefix + "invites")) {
+   if(message.content.startsWith(prefix + "دعواتي")) {
     message.guild.fetchInvites().then(invs => {
       let user = message.mentions.users.first() || message.author
       let personalInvites = invs.filter(i => i.inviter.id === user.id);
