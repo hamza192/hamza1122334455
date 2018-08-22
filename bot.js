@@ -921,14 +921,6 @@ client.on("message", message => {
 
 
 
-const Discord = require("discord.js")
-const client = new Discord.Client()
-client.on("ready", () => {
-let channel =     client.channels.get("450053252222812162")
-setInterval(function() {
-channel.send(`**!اذكار**`);
-}, 7200000)
-})
 
 
 
