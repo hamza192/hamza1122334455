@@ -355,21 +355,12 @@ client.on('message', msg => {
 
 
 client.on('message', msg => {
-  if (msg.content === '.') {
-    msg.reply('**احلى من نقط**');
+  if (msg.content === 'ولكم') {
+    msg.reply('**^ :sparkles:Welcome to  LEGO | مرحبا بك في ليقو:sparkles:^**');
   }
 });
 
 
-client.on('message', message => {
-let msg = "ولكم";
-let reply = "**^ :sparkles:Welcome to  LEGO | مرحبا بك في ليقو:sparkles:^**";
-if(message.content === msg) {
-setTimeout(() => {
-message.channel.send(reply);
-}, 1000);
-}
-});
 
 
 
