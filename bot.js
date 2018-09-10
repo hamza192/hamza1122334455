@@ -110,8 +110,7 @@ client.on('message', message => {
 
 
 
- const arraySort = require('array-sort'),
-table = require('table');
+ 
 
 client.on('message' , async (message) => {
 
