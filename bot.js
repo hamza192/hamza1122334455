@@ -115,7 +115,7 @@ table = require('table');
 
 client.on('message' , async (message) => {
 
-    if(message.content.startsWith(prefix + "topinv")) {
+    if(message.content.startsWith(prefix + "topinvite")) {
 
   let invites = await message.guild.fetchInvites();
 
@@ -135,6 +135,7 @@ client.on('message' , async (message) => {
     message.channel.send(embed)
     }
 });
+  
   
 
 
