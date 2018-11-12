@@ -339,14 +339,6 @@ message.react("❌")
  }}});
 
 
-const Discord = require("discord.js");
-const client = new Discord.Client();
-
-client.on('ready',  () => {
-  console.log('By:M7md');
-});
-
-var prefix = 'البريفكس (:';
 
 client.on('message', message => {
     if(message.content === prefix + 'createcolors') {
