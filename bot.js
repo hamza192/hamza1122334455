@@ -345,7 +345,12 @@ message.react("❌")
 
 	
 
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+client.on('message', message => {
+var prefix = "!";
+       if(message.content === prefix + "mutechannel") {
+                           if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
               message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: false
 
@@ -367,8 +372,6 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__
     }
        
 });
-
-
 
 
 
